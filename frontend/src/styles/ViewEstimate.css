@@ -1,0 +1,430 @@
+@media (orientation: landscape) {
+    .ViewEstimate {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width : 100vw;
+        height: 100vh;
+        z-index: 5;
+    }
+
+    .Background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left : 0;
+        background-color: rgb(0, 0, 0, 0.2);
+    }
+
+    .ViewEstimateContainer {
+        position: absolute;
+        left: 50%;
+        top : 50%;
+        transform: translateX(-50%) translateY(-50%);
+        display: flex;
+        width: 80%;
+        height: 60%;
+        padding: 5% 5% 5% 5%;
+        background-color: black;
+        scrollbar-color: rgb(64, 64, 64);
+        scrollbar-track-color: black;
+        overflow-y: scroll;
+        z-index: 10;    
+        color : white;
+    }
+
+    .ViewEstimateContainer::-webkit-scrollbar-thumb {
+        background: rgb(64, 64, 64)
+    }
+        
+    .ViewEstimateContainer::-webkit-scrollbar-track {
+        background-color: black;
+    }
+
+    .ContentContainer {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .EstimateInformation {
+        display: grid;
+        place-items: center;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 80%;
+        height: fit-content;
+        color : white;
+    }
+
+    .EstimateInformation,
+    .Description,
+    .EstimatePhotosContainer,
+    .EstimatePrice {
+        margin-bottom: 5vw;
+    }
+
+    .EstimateField {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        color : white;
+        font-family: 'Montserrat';
+    }
+
+    .Description {
+        width: 70%;
+        aspect-ratio: 16/9;
+        padding: 2% 2% 2% 2%;
+        background-color: rgb(64, 64, 64);
+    }
+
+    .EstimatePhotosContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 80%;
+        aspect-ratio: 16/9;
+        overflow-y: auto;
+    }
+
+    .EstimatePhotos {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        row-gap: 2vw;
+        column-gap: 2vw;
+        place-items: center;
+        width: 100%;
+    }
+
+    .EstimatePhoto {
+        width: 100%;
+        height: 100%;
+    }
+
+    .EstimatePhoto img{
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+    }
+
+    .EstimatePrice {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 40%;
+        height: 10vw;
+        font-family: 'Montserrat';
+        font-weight: 700;
+    }
+
+    .EstimatePrice input {
+        width: 45%;
+        height: 20%;
+        font-size: 1vw;
+        background-color: rgb(64, 64, 64);
+    }
+
+    .EstimatePrice button {
+        background: linear-gradient(to bottom, red 0%, darkred 100%);
+    }
+
+    .EstimateSent {
+        color: green;
+        font-family: 'Montserrat';
+        font-weight: 700;
+    }
+
+    .LeadCapture {
+        width: 100%;
+        aspect-ratio: 7/3;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .LeadCapture textarea {
+        width: 100%;
+        aspect-ratio: 5/1;
+        resize: none;
+        font-size: 1.5vw;
+        font-family: 'Montserrat';
+        background-color: rgb(64, 64, 64);
+        color: white;
+    }
+
+    .LeadCapture div {
+        position: relative;
+        width: 100%;
+        height: 5vw;
+    }
+
+    .LeadCapture div button {
+        position: absolute;
+        left : 0;
+        top : 50%;
+        transform: translateY(-50%);
+
+        border-radius: 25px;
+        background-color: white;
+        color: black;
+        font-family: 'Montserrat';
+    }
+
+    .LoadingIcon {
+        position: absolute;
+        height: 100%;
+        width: fit-content;
+
+        left: 0;
+        top : 50%;
+        transform: translateY(-50%);
+        animation: spin 2s linear infinite;
+    }
+
+    .LoadingIcon img {
+        object-fit: contain;
+        height: 100%;
+        width: fit-content;
+    }
+
+    .ResponseSent {
+        width: 100%;
+        font-size: 1.5vw;
+    }
+
+    
+}
+
+@media (orientation: portrait) {
+    .ViewEstimate {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width : 100vw;
+        height: 100vh;
+        z-index: 5;
+    }
+
+    .Background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left : 0;
+        background-color: rgb(0, 0, 0, 0.2);
+    }
+
+    .ViewEstimateContainer {
+        position: absolute;
+        left: 50%;
+        top : 50%;
+        transform: translateX(-50%) translateY(-50%);
+        display: flex;
+        width: 80%;
+        height: 60%;
+        padding: 5% 5% 5% 5%;
+        background-color: black;
+        scrollbar-color: rgb(64, 64, 64);
+        scrollbar-track-color: black;
+        overflow-y: scroll;
+        z-index: 10;    
+        color : white;
+    }
+
+    .ViewEstimateContainer::-webkit-scrollbar-thumb {
+        background: rgb(64, 64, 64)
+    }
+        
+    .ViewEstimateContainer::-webkit-scrollbar-track {
+        background-color: black;
+    }
+
+    .ContentContainer {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        color : white;
+    }
+
+    .EstimateInformation {
+        display: grid;
+        place-items: center;
+        grid-template-columns: 1fr;
+        width: 80%;
+        height: fit-content;
+        color : white;
+    }
+
+    .EstimateInformation,
+    .Description,
+    .EstimatePhotosContainer,
+    .EstimatePrice {
+        margin-bottom: 5vw;
+    }
+
+    .EstimateField {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        color : white;
+        font-family: 'Montserrat';
+    }
+
+    .Description {
+        width: 70%;
+        aspect-ratio: 9/16;
+        padding: 2% 2% 2% 2%;
+        background-color: rgb(64, 64, 64);
+    }
+
+    .EstimatePhotosContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 80%;
+        aspect-ratio: 9/16;
+        overflow-y: auto;
+    }
+
+    .EstimatePhotosContainer h1 {
+        font-size: 5vw;
+        text-wrap: nowrap;
+    }
+
+
+    .EstimatePhotos {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 2vw;
+        column-gap: 2vw;
+        place-items: center;
+        width: 100%;
+    }
+
+    .EstimatePhoto {
+        width: 100%;
+        height: 100%;
+    }
+
+    .EstimatePhoto img{
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+    }
+
+    .EstimatePrice {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 40vw;
+        font-family: 'Montserrat';
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .EstimatePrice input {
+        width: 45%;
+        height: 20%;
+        font-size: 4vw;
+        background-color: rgb(64, 64, 64);
+    }
+
+    .EstimatePrice button {
+        background: linear-gradient(to bottom, red 0%, darkred 100%);
+    }
+
+    .EstimateSent {
+        color: green;
+        font-family: 'Montserrat';
+        font-weight: 700;
+        font-size: 3vw;
+    }
+
+    .LeadCapture {
+        width: 100%;
+        aspect-ratio: 3/6;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .LeadCapture h1 {
+        font-size: 7vw;
+    }
+
+    .LeadCapture textarea {
+        width: 100%;
+        aspect-ratio: 1/1;
+        resize: none;
+        font-size: 4vw;
+        font-family: 'Montserrat';
+        background-color: rgb(64, 64, 64);
+        color: white;
+    }
+
+    .LeadCapture div {
+        position: relative;
+        width: 100%;
+        height: 5vw;
+    }
+
+    .LeadCapture div button {
+        position: absolute;
+        left : 0;
+        top : 50%;
+        transform: translateY(-50%);
+
+        border-radius: 25px;
+        background-color: white;
+        color: black;
+        font-family: 'Montserrat';
+    }
+
+    .LoadingIcon {
+        position: absolute;
+        height: 100%;
+        width: fit-content;
+
+        left: 0;
+        top : 50%;
+        transform: translateY(-50%);
+        animation: spin 2s linear infinite;
+    }
+
+    .LoadingIcon img {
+        object-fit: contain;
+        height: 100%;
+        width: fit-content;
+    }
+
+    .ResponseSent {
+        width: 100%;
+        font-size: 4vw;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

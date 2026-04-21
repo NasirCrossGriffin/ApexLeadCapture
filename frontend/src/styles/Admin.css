@@ -1,0 +1,118 @@
+@media (orientation: landscape) {
+    .AdminDashboard {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        position: relative;
+        left: 0;
+        top : 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: white;
+        z-index: 1;
+        overflow-y: scroll;
+    }
+
+    .EstimateContainer {
+        position: relative;
+        width: 100%;
+        height: 80%;
+        left : 0;
+        bottom : 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        place-items: center;
+        color: white;
+        z-index: 5;
+        overflow-y: auto;
+        padding-top: 10vw;
+    }
+
+    .Estimate {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 20vw;
+        height: 20vw;
+        padding: 1vw 1vw 1vw 1vw;
+        background-color: rgb(64, 64, 64);
+        border-radius: 25px;
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+        border-color: transparent;
+        border-width: 2px;
+        border-style: solid;
+        color : white
+    }
+
+    .Estimate p {
+        text-align: center;
+        font-weight: 700;
+    }
+
+    .Estimate:hover {
+        border-color: white;
+        border-width: 2px;
+        border-style: solid;
+    }
+    
+}
+
+@media (orientation: portrait) {
+    .AdminDashboard {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        position: relative;
+        left: 0;
+        top : 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(32, 32, 32);
+    }
+
+    .EstimateContainer {
+        position: relative;
+        width: 100%;
+        height: 90%;
+        left : 0;
+        bottom : 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        color: white;
+        overflow-y: auto;
+    }
+
+    .Estimate {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        place-items: center;
+        width: 80%;
+        height: fit-content;
+        padding: 1vw 1vw 1vw 1vw;
+        background-color: rgb(64, 64, 64);
+        border-radius: 25px;
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+        border-color: transparent;
+        border-width: 2px;
+        border-style: solid;
+        color : white
+    }
+
+    .Estimate p {
+        text-align: center;
+        font-weight: 700;
+    }
+
+    .Estimate:hover {
+        border-color: white;
+        border-width: 2px;
+        border-style: solid;
+    }
+}

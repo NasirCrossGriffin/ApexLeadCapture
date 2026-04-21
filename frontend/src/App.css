@@ -1,0 +1,17 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+} 
+
+@media (min-width : 1200px) {
+    body {
+        overflow: hidden hidden;
+    } 
+}
+
+@media (max-width : 700px) {
+    body {
+        aspect-ratio: 16/9;
+    } 
+}

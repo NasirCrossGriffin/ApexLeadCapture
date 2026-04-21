@@ -1,0 +1,47 @@
+GET  http://localhost:4003/api/bodyshop/
+Content-Type: application/json
+
+###
+
+POST http://localhost:4003/api/admin/register
+Content-Type: application/json
+
+{
+    "username" : "NasirGriffin",
+    "password" : "SuperNovaEdge1998%",
+    "organization" : "69e11bd6a6984313434ca048",
+    "key" : ")NmMoj:>BvmO0(oj&.NQbRH.SN}(ogEV"
+}
+
+###
+
+POST http://localhost:4003/api/admin/authenticate
+Content-Type: application/json
+
+{
+    "username" : "NasirGriffin",
+    "password" : "SuperNovaEdge1998%",
+    "organization" : "69e11bd6a6984313434ca048"
+}
+
+###
+
+GET http://localhost:4003/api/estimatequery/test
+Content-Type: application/json
+
+###
+
+POST  http://localhost:4003/api/organization/
+Content-Type: application/json
+
+{
+    "displayName" : "Test",
+    "name" : "test",
+    "email" : "nasircrossgriffin@gmail.com",
+    "logo" : "https://bodyshop-bucket.s3.us-east-1.amazonaws.com/public/uploads/DaesMobileMechanic.png"
+}
+
+###
+
+GET  http://localhost:4003/api/organization/name/test
+Content-Type: application/json

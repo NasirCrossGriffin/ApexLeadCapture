@@ -1,0 +1,47 @@
+.AdminLogin {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.LoginForm {
+    position: absolute;
+    width: 30vw;
+    height: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 50px 50px 50px;
+    left : 50%;
+    top : 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background-color: black;
+}
+
+@media(max-width : 1023px) {
+    .LoginForm {
+        font-size: 15px;
+        text-wrap: nowrap;
+        width : 250px;
+        height : 250px;
+        top : 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+}
+
+.LoginForm input {
+    width: 90%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.LoginForm button {
+    margin-top: 20px;
+}
+
+.LoginForm label {
+    font-size: 20px;
+}
