@@ -1,7 +1,7 @@
 // admin.middleware.ts
 // Middleware method for POST /api/admin/autheticate (spelled as in your route)
 
-const BASE_URL = import.meta.env.DEV ? import.meta.env.VITE_API_LEAD_CAPTURE_DEV : import.meta.env.VITE_API_LEAD_CAPTURE_PROD;
+const BASE_URL = import.meta.env.DEV ? import.meta.env.VVITE_API_DEV_BASE_URL : import.meta.env.VITE_API_PROD_BASE_URL;
 
 
   async function getBaseUrl() {
