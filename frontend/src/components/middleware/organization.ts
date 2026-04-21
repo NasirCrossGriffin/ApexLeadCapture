@@ -1,4 +1,8 @@
-const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const BASE_URL = import.meta.env.DEV ? import.meta.env.VITE_API_DEV_BASE_URL : import.meta.env.VITE_API_PROD_BASE_URL;
+
+  async function getBaseUrl() {
+    return BASE_URL;
+  }
 
 export type Organization = {
   displayName: string;
@@ -10,8 +14,10 @@ export type Organization = {
 export type OrganizationUpdate = Partial<Organization>;
 
 export async function createOrganization(protoOrganization: Organization) {
+    const url = await getBaseUrl();
+
   try {
-    const response = await fetch(`${BASE_URL}/api/organization`, {
+    const response = await fetch(`${url}/api/organization`, {
       headers: { "content-type": "application/json" },
       method: "POST",
       body: JSON.stringify(protoOrganization),
@@ -30,8 +36,10 @@ export async function createOrganization(protoOrganization: Organization) {
 }
 
 export async function getOrganizations() {
+    const url = await getBaseUrl();
+
   try {
-    const response = await fetch(`${BASE_URL}/api/organization`, {
+    const response = await fetch(`${url}/api/organization`, {
       headers: { "content-type": "application/json" },
       method: "GET",
     });
@@ -49,9 +57,11 @@ export async function getOrganizations() {
 }
 
 export async function getOrganizationById(organizationId: string) {
+    const url = await getBaseUrl();
+
   try {
     const response = await fetch(
-      `${BASE_URL}/api/organization/${encodeURIComponent(organizationId)}`,
+      `${url}/api/organization/${encodeURIComponent(organizationId)}`,
       {
         headers: { "content-type": "application/json" },
         method: "GET",
@@ -74,9 +84,11 @@ export async function updateOrganization(
   organizationId: string,
   updates: OrganizationUpdate
 ) {
+    const url = await getBaseUrl();
+
   try {
     const response = await fetch(
-      `${BASE_URL}/api/organization/${encodeURIComponent(organizationId)}`,
+      `${url}/api/organization/${encodeURIComponent(organizationId)}`,
       {
         headers: { "content-type": "application/json" },
         method: "PUT",
@@ -98,8 +110,10 @@ export async function updateOrganization(
 
 export async function deleteOrganization(organizationId: string) {
   try {
+      const url = await getBaseUrl();
+
     const response = await fetch(
-      `${BASE_URL}/api/organization/${encodeURIComponent(organizationId)}`,
+      `${url}/api/organization/${encodeURIComponent(organizationId)}`,
       {
         headers: { "content-type": "application/json" },
         method: "DELETE",
@@ -120,8 +134,12 @@ export async function deleteOrganization(organizationId: string) {
 
 export async function getOrganizationByName(name: string) {
   try {
+      const url = await getBaseUrl();
+
+    console.log(BASE_URL);
+
     const response = await fetch(
-      `${BASE_URL}/api/organization/name/${encodeURIComponent(name)}`,
+      `${url}/api/organization/name/${encodeURIComponent(name)}`,
       {
         headers: { "content-type": "application/json" },
         method: "GET",

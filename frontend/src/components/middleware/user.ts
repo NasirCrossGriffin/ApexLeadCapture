@@ -1,4 +1,8 @@
-const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const BASE_URL = import.meta.env.DEV ? import.meta.env.VITE_API_DEV_BASE_URL : import.meta.env.VITE_API_PROD_BASE_URL;
+
+  async function getBaseUrl() {
+    return BASE_URL;
+  }
 
 export type User = {
   firstName: string;
@@ -12,8 +16,10 @@ export type User = {
 export type UserUpdate = Partial<User>;
 
 export async function createUser(protoUser: User) {
+    const url = await getBaseUrl();
+
   try {
-    const response = await fetch(`${BASE_URL}/api/user`, {
+    const response = await fetch(`${url}/api/user`, {
       headers: { "content-type": "application/json" },
       method: "POST",
       body: JSON.stringify(protoUser),
@@ -32,13 +38,15 @@ export async function createUser(protoUser: User) {
 }
 
 export async function getUsers(organizationId?: string) {
-  try {
-    const url =
-      organizationId
-        ? `${BASE_URL}/api/user?organization=${encodeURIComponent(organizationId)}`
-        : `${BASE_URL}/api/user`;
+    const url = await getBaseUrl();
 
-    const response = await fetch(url, {
+  try {
+    const thisUrl =
+      organizationId
+        ? `${url}/api/user?organization=${encodeURIComponent(organizationId)}`
+        : `${url}/api/user`;
+
+    const response = await fetch(thisUrl, {
       headers: { "content-type": "application/json" },
       method: "GET",
     });
@@ -56,8 +64,10 @@ export async function getUsers(organizationId?: string) {
 }
 
 export async function getUserById(userId: string) {
+    const url = await getBaseUrl();
+
   try {
-    const response = await fetch(`${BASE_URL}/api/user/${encodeURIComponent(userId)}`, {
+    const response = await fetch(`${url}/api/user/${encodeURIComponent(userId)}`, {
       headers: { "content-type": "application/json" },
       method: "GET",
     });
@@ -75,8 +85,10 @@ export async function getUserById(userId: string) {
 }
 
 export async function updateUser(userId: string, updates: UserUpdate) {
+    const url = await getBaseUrl();
+
   try {
-    const response = await fetch(`${BASE_URL}/api/user/${encodeURIComponent(userId)}`, {
+    const response = await fetch(`${url}/api/user/${encodeURIComponent(userId)}`, {
       headers: { "content-type": "application/json" },
       method: "PUT",
       body: JSON.stringify(updates),
@@ -95,8 +107,10 @@ export async function updateUser(userId: string, updates: UserUpdate) {
 }
 
 export async function deleteUser(userId: string) {
+    const url = await getBaseUrl();
+
   try {
-    const response = await fetch(`${BASE_URL}/api/user/${encodeURIComponent(userId)}`, {
+    const response = await fetch(`${url}/api/user/${encodeURIComponent(userId)}`, {
       headers: { "content-type": "application/json" },
       method: "DELETE",
     });

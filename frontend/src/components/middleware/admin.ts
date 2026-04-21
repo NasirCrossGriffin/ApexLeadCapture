@@ -1,7 +1,12 @@
 // admin.middleware.ts
 // Middleware method for POST /api/admin/autheticate (spelled as in your route)
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const BASE_URL = import.meta.env.DEV ? import.meta.env.VITE_API_LEAD_CAPTURE_DEV : import.meta.env.VITE_API_LEAD_CAPTURE_PROD;
+
+
+  async function getBaseUrl() {
+    return BASE_URL;
+  }
 
 export type AdminAuthRequest = {
   username: string;
@@ -18,10 +23,12 @@ export type AdminAuthResponse = {
 export async function authenticateAdmin(
   creds: AdminAuthRequest
 ): Promise<AdminAuthResponse | null> {
+  
+  const url = await getBaseUrl();
   console.log("entered")
   try {
     console.log("try entered")
-    const response = await fetch(`${BASE_URL}/api/admin/authenticate`, {
+    const response = await fetch(`${url}/api/admin/authenticate`, {
       headers: { "content-type": "application/json" },
       method: "POST",
       body: JSON.stringify(creds),
@@ -42,7 +49,9 @@ export async function authenticateAdmin(
 }
 
 export const check : any = async (organizationId : string) => {
-    const response = await fetch(`${BASE_URL}/api/admin/check`, {
+    const url = await getBaseUrl();
+
+    const response = await fetch(`${url}/api/admin/check`, {
             method: 'POST',
             body : JSON.stringify({organizationId : organizationId}),
             headers: {

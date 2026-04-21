@@ -1,10 +1,16 @@
-const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const BASE_URL = import.meta.env.DEV ? import.meta.env.VITE_API_DEV_BASE_URL : import.meta.env.VITE_API_PROD_BASE_URL;
+
+  async function getBaseUrl() {
+    return BASE_URL;
+  }
 
 export const newContact : any = async (contact : Object) => {
     console.log(contact)
+      const url = await getBaseUrl();
+
 
     try {
-        const response = await fetch(`${BASE_URL}/api/contact/inquiry/receive`, {
+        const response = await fetch(`${url}/api/contact/inquiry/receive`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",
@@ -29,9 +35,11 @@ export const newContact : any = async (contact : Object) => {
 
 export const createResponseCotact : any = async (contact : Object) => {
     console.log(contact)
+      const url = await getBaseUrl();
+
 
     try {
-        const response = await fetch(`${BASE_URL}/api/contact/inquiry/update`, {
+        const response = await fetch(`${url}/api/contact/inquiry/update`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",

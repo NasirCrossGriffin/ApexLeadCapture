@@ -14,7 +14,7 @@ import dayjs, { Dayjs } from "dayjs";
 
 
 function IngestionPage() {
-    const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+    const BASE_URL = import.meta.env.DEV ? import.meta.env.VITE_API_DEV_BASE_URL : import.meta.env.VITE_API_PROD_BASE_URL;
 
     const { serviceParam } = useParams();
     const navigate = useNavigate();
@@ -126,6 +126,7 @@ function IngestionPage() {
 
         getorganization();
         getService();
+        console.log(BASE_URL);
     }, [])
 
     useEffect(() => {

@@ -1,7 +1,11 @@
 // realEstatePhoto.middleware.ts
 // Same style as your previous middleware functions
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const BASE_URL = import.meta.env.DEV ? import.meta.env.VITE_API_DEV_BASE_URL : import.meta.env.VITE_API_PROD_BASE_URL;
+
+  async function getBaseUrl() {
+    return BASE_URL;
+  }
 
 export type realEstatePhoto = {
   realEstateQuery: string;
@@ -11,8 +15,10 @@ export type realEstatePhoto = {
 export type realEstatePhotoUpdate = Partial<realEstatePhoto>;
 
 export async function CreateRealEstatePhoto(protoRealEstatePhoto: realEstatePhoto) {
+    const url = await getBaseUrl();
+
   try {
-    const response = await fetch(`${BASE_URL}/api/real-estate-photo`, {
+    const response = await fetch(`${url}/api/real-estate-photo`, {
       headers: { "content-type": "application/json" },
       method: "POST",
       body: JSON.stringify(protoRealEstatePhoto),
@@ -31,14 +37,16 @@ export async function CreateRealEstatePhoto(protoRealEstatePhoto: realEstatePhot
 }
 
 export async function GetRealEstatePhotos(realEstateQueryId?: string) {
+    const url = await getBaseUrl();
+
   try {
-    const url = realEstateQueryId
-      ? `${BASE_URL}/api/real-estate-photo?realEstateQuery=${encodeURIComponent(
+    const thisUrl = realEstateQueryId
+      ? `${url}/api/real-estate-photo?realEstateQuery=${encodeURIComponent(
           realEstateQueryId
         )}`
-      : `${BASE_URL}/api/real-estate-photo`;
+      : `${url}/api/real-estate-photo`;
 
-    const response = await fetch(url, {
+    const response = await fetch(thisUrl, {
       headers: { "content-type": "application/json" },
       method: "GET",
     });
@@ -56,9 +64,11 @@ export async function GetRealEstatePhotos(realEstateQueryId?: string) {
 }
 
 export async function GetRealEstatePhotoById(photoId: string) {
+    const url = await getBaseUrl();
+
   try {
     const response = await fetch(
-      `${BASE_URL}/api/real-estate-photo/${encodeURIComponent(photoId)}`,
+      `${url}/api/real-estate-photo/${encodeURIComponent(photoId)}`,
       {
         headers: { "content-type": "application/json" },
         method: "GET",
@@ -82,8 +92,10 @@ export async function UpdateRealEstatePhoto(
   updates: realEstatePhotoUpdate
 ) {
   try {
+      const url = await getBaseUrl();
+
     const response = await fetch(
-      `${BASE_URL}/api/real-estate-photo/${encodeURIComponent(photoId)}`,
+      `${url}/api/real-estate-photo/${encodeURIComponent(photoId)}`,
       {
         headers: { "content-type": "application/json" },
         method: "PUT",
@@ -105,8 +117,10 @@ export async function UpdateRealEstatePhoto(
 
 export async function DeleteRealEstatePhoto(photoId: string) {
   try {
+      const url = await getBaseUrl();
+
     const response = await fetch(
-      `${BASE_URL}/api/real-estate-photo/${encodeURIComponent(photoId)}`,
+      `${url}/api/real-estate-photo/${encodeURIComponent(photoId)}`,
       {
         headers: { "content-type": "application/json" },
         method: "DELETE",

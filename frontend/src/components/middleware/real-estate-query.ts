@@ -1,7 +1,11 @@
 // estimateQuery.middleware.ts
 // Same style as your previous middleware examples
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const BASE_URL = import.meta.env.DEV ? import.meta.env.VITE_API_DEV_BASE_URL : import.meta.env.VITE_API_PROD_BASE_URL;
+
+  async function getBaseUrl() {
+    return BASE_URL;
+  }
 
 export type RealEstateQuery = {
   organization : String,
@@ -25,7 +29,9 @@ export type RealEstateQueryUpdate = Partial<RealEstateQuery>;
 
 export async function CreateRealEstateQuery(protoRealEstateQuery: RealEstateQuery) {
   try {
-    const response = await fetch(`${BASE_URL}/api/real-estate-query`, {
+      const url = await getBaseUrl();
+
+    const response = await fetch(`${url}/api/real-estate-query`, {
       headers: { "content-type": "application/json" },
       method: "POST",
       body: JSON.stringify(protoRealEstateQuery),
@@ -47,16 +53,18 @@ export async function getEstimateQueries(
   filters?: { bodyShop?: string; user?: string; status?: string }
 ) {
   try {
+      const url = await getBaseUrl();
+
     const params = new URLSearchParams();
     if (filters?.bodyShop) params.append("bodyShop", filters.bodyShop);
     if (filters?.user) params.append("user", filters.user);
     if (filters?.status) params.append("status", filters.status);
 
-    const url = `${BASE_URL}/api/real-estate-query${
+    const thisUrl = `${url}/api/real-estate-query${
       params.toString() ? `?${params.toString()}` : ""
     }`;
 
-    const response = await fetch(url, {
+    const response = await fetch(thisUrl, {
       headers: { "content-type": "application/json" },
       method: "GET",
     });
@@ -74,8 +82,10 @@ export async function getEstimateQueries(
 }
 
 export async function getRealEstateQueriesByOrganization(organizationId : string) {
+    const url = await getBaseUrl();
+
   try {
-    const response = await fetch(`${BASE_URL}/api/real-estate-query/organization/${organizationId}`, {
+    const response = await fetch(`${url}/api/real-estate-query/organization/${organizationId}`, {
       headers: { "content-type": "application/json" },
       method: "GET",
     });
@@ -93,9 +103,11 @@ export async function getRealEstateQueriesByOrganization(organizationId : string
 }
 
 export async function getEstimateQueryById(estimateQueryId: string) {
+    const url = await getBaseUrl();
+
   try {
     const response = await fetch(
-      `${BASE_URL}/api/real-estate-query/${encodeURIComponent(estimateQueryId)}`,
+      `${url}/api/real-estate-query/${encodeURIComponent(estimateQueryId)}`,
       {
         headers: { "content-type": "application/json" },
         method: "GET",
@@ -118,9 +130,11 @@ export async function updateRealEstateQuery(
   realEstateQueryId: string,
   updates: any
 ) {
+    const url = await getBaseUrl();
+
   try {
     const response = await fetch(
-      `${BASE_URL}/api/real-estate-query/${encodeURIComponent(realEstateQueryId)}`,
+      `${url}/api/real-estate-query/${encodeURIComponent(realEstateQueryId)}`,
       {
         headers: { "content-type": "application/json" },
         method: "PUT",
@@ -141,9 +155,11 @@ export async function updateRealEstateQuery(
 }
 
 export async function deleteRealEstateQuery(realEstateQueryId: string) {
+    const url = await getBaseUrl();
+
   try {
     const response = await fetch(
-      `${BASE_URL}/api/real-estate-query/${encodeURIComponent(realEstateQueryId)}`,
+      `${url}/api/real-estate-query/${encodeURIComponent(realEstateQueryId)}`,
       {
         headers: { "content-type": "application/json" },
         method: "DELETE",

@@ -205,12 +205,11 @@
     .PropertyInput select {
         width: 90%;
         aspect-ratio: 14/2;
-        border-color: black;
-        border-radius: 5px;
+        border-color: rgb(139, 139, 139);
+        border-radius: 0;
         font-size: 5vw;
         color: white;
         background-color: rgb(64, 64, 64);
-        border-color: black;
         border-style: solid;
     }
 
