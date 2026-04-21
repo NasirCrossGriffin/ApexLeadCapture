@@ -599,22 +599,22 @@ function IngestionPage() {
                             <div className='InputGrid'>
                                 <div className='PropertyInput'>
                                     <label htmlFor='address'>Address</label>
-                                    <input name='address' value={address} onInput={(e) => {setAddress(e.currentTarget.value)}}/>
+                                    <input placeholder='Address' name='address' value={address} onInput={(e) => {setAddress(e.currentTarget.value)}}/>
                                 </div>
                        
                                 <div className='PropertyInput'>
                                     <label htmlFor='city'>City</label>
-                                    <input name='city' value={city} onInput={(e) => {setCity(e.currentTarget.value)}}/>
+                                    <input placeholder='City' name='city' value={city} onInput={(e) => {setCity(e.currentTarget.value)}}/>
                                 </div>
                   
                                 <div className='PropertyInput'>
                                     <label htmlFor='state'>State</label>
-                                    <input name='state' value={state} onInput={(e) => {setState(e.currentTarget.value)}}/>
+                                    <input placeholder='State' name='state' value={state} onInput={(e) => {setState(e.currentTarget.value)}}/>
                                 </div>
           
                                 <div className='PropertyInput'>
                                     <label htmlFor='zipcode'>Zip Code</label>
-                                    <input name='zipcode' value={zipcode} onInput={(e) => {setZipCode(e.currentTarget.value)}}/>
+                                    <input placeholder='Zip Code' name='zipcode' value={zipcode} onInput={(e) => {setZipCode(e.currentTarget.value)}}/>
                                 </div>
                             </div>
                         </div>
@@ -689,12 +689,12 @@ function IngestionPage() {
                                     <div className='InputGrid'>
                                         <div className='PropertyInput'>
                                             <label htmlFor='loanBalance'>Loan Balance</label>
-                                            <input name='loanBalance' value={loanBalance} onInput={(e) => {setLoanBalance(e.currentTarget.value)}}/>
+                                            <input placeholder='Loan Balance' name='loanBalance' value={loanBalance} onInput={(e) => {setLoanBalance(e.currentTarget.value)}}/>
                                         </div>
                             
                                         <div className='PropertyInput'>
                                             <label htmlFor='amountBehind'>Amount Behind</label>
-                                            <input name='amountBehind' value={amountBehind} onInput={(e) => {setAmountBehind(e.currentTarget.value)}}/>
+                                            <input placeholder='Amount Behind' name='amountBehind' value={amountBehind} onInput={(e) => {setAmountBehind(e.currentTarget.value)}}/>
                                         </div>
                         
                                         <div className='PropertyInput'>
@@ -714,12 +714,12 @@ function IngestionPage() {
                 
                                         <div className='PropertyInput'>
                                             <label htmlFor='lenderName'>Lender Name</label>
-                                            <input name='lenderName' value={lenderName} onInput={(e) => {setLenderName(e.currentTarget.value)}}/>
+                                            <input placeholder='Lender Name' name='lenderName' value={lenderName} onInput={(e) => {setLenderName(e.currentTarget.value)}}/>
                                         </div>
 
                                         <div className='PropertyInput'>
                                             <label htmlFor='auctionDate'>Auction Date (If Applicable)</label>
-                                            <input name='auctionDate'type="date" value={auctionDate} onInput={(e) => {setAuctionDate(e.currentTarget.value)}}/>
+                                            <input name='auctionDate' placeholder='Auction Date' type="date" value={auctionDate} onInput={(e) => {setAuctionDate(e.currentTarget.value)}}/>
                                         </div>
                                     </div>
                                 </div> : null}  
