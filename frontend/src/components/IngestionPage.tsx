@@ -98,6 +98,24 @@ function IngestionPage() {
         setValidService(false);
      }, [service])
 
+     useEffect(() => {
+        const setHeight = () => {
+            const height = window.visualViewport
+            ? window.visualViewport.height
+            : window.innerHeight;
+
+            document.documentElement.style.setProperty("--app-height", `${height}px`);
+        };
+
+        setHeight();
+
+        window.addEventListener("orientationchange", setHeight);
+
+        return () => {
+            window.removeEventListener("orientationchange", setHeight);
+        };
+    }, []);
+
     useEffect(() => {
         const getorganization = async () => {
             const protoorganization = await getOrganizationByName("test");
@@ -578,6 +596,7 @@ function IngestionPage() {
                                         value={phoneNumber}
                                         onInput={(e) => setPhoneNumber(e.currentTarget.value)}
                                     />
+                                    <p>* Phone number is used to contact qualified inquirers with requested services</p>
                                 </div>
 
                                 <div className='ContactField'>
@@ -589,6 +608,7 @@ function IngestionPage() {
                                         value={email}
                                         onInput={(e) => setEmail(e.currentTarget.value)}
                                     />
+                                    <p>* Phone number is used to contact qualified inquirers with requested services</p>
                                 </div>
                             </div>
                         </div>

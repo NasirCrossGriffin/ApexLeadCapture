@@ -8,7 +8,7 @@
         left: 0;
         top : 0;
         width: 100vw;
-        height: 100vh;
+        height: var(--app-height);
         background-color: rgb(255, 255, 255);
     }
 
@@ -144,6 +144,11 @@
         align-items: center;
         width: 45%;
         height: 45%;
+    }
+
+    .ContactField p {
+        font-size : 1.3vw;
+        color: black;
     }
 
     .NameField input, .ContactField input {
@@ -452,6 +457,7 @@
         font-family: 'Montserrat';
         font-size: 1.4vw;
         box-shadow: 0 0 10px 10px rgb(139, 139, 139);
+        color : white
     }
     /* 
         ##############################
@@ -605,7 +611,8 @@
 
     .InsuranceInquiry h2 {
         color : black;
-        font-family: 'Montserrat'
+        font-family: 'Montserrat';
+        margin : 0 0 0 0;
     }
 
     .InsuranceProvider {
@@ -693,7 +700,7 @@
 
     .LoadingPage {
         width: 100vw;
-        height: 100vh;
+        height: var(--app-height);
         background-color: white;
     }
 
@@ -719,7 +726,7 @@
         left : 0;
         top : 0;
         width: 100vw;
-        height: 100vh; 
+        height: var(--app-height);
         background-color: white;
     }
 
@@ -727,10 +734,12 @@
         position: absolute;
         left: 50%;
         top: 5%;
+        width : 100%;
         color: black;
         transform: translate(-50%, -5%);
         font-family: 'Montserrat';
         text-wrap: nowrap;
+        text-align: center;
     }
 
     .ServiceSelector {
