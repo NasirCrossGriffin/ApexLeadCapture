@@ -58,9 +58,11 @@ function AdminLogin() {
             <div className='AdminLogin'>
                 <div className='LoginForm'>
                     <h1>Admin Login</h1>
-                    <label htmlFor='username'>Username</label>
+                    {organization ? <h1>{organization.displayName}</h1> : null }
+                    {organization ? <div className='OrgLogo'><img src={organization.logo}/></div> : null}
+                    <label htmlFor='username'>Username: </label>
                     <input placeholder='Username' onChange={(e) => {setUsername(e.currentTarget.value)}} name='username'></input>
-                    <label htmlFor='password' typeof='password'>Password</label>
+                    <label htmlFor='password' typeof='password'>Password: </label>
                     <input placeholder='Password' name='password' type='password' onChange={(e) => {setPassword(e.currentTarget.value)}}></input>
                     <button onClick={() => {handleLogin()}}>Submit</button>
                 </div>

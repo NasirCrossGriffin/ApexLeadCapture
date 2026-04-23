@@ -535,6 +535,8 @@ function IngestionPage() {
             >
                 Back
             </button>
+
+            <div className='ProgressBar'><div className='Progress' style={{width : ((formIndex/6) * 100).toString().concat('%')}}></div></div>
                 {  
                     formIndex === 0 ?
                         <div className='CustomerInformation fade-in-slide-up'>

@@ -1,47 +1,156 @@
-.AdminLogin {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-}
+@media (orientation : landscape) {
+    .AdminLogin {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+    }
 
-.LoginForm {
-    position: absolute;
-    width: 30vw;
-    height: 30vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 50px 50px 50px 50px;
-    left : 50%;
-    top : 50%;
-    transform: translateX(-50%) translateY(-50%);
-    background-color: black;
-}
-
-@media(max-width : 1023px) {
     .LoginForm {
-        font-size: 15px;
-        text-wrap: nowrap;
-        width : 250px;
-        height : 250px;
+        position: absolute;
+        width: 30vw;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        left : 50%;
         top : 50%;
         transform: translateX(-50%) translateY(-50%);
+        background-color: white;
+    }
+
+    .LoginForm h1 {
+        color: black;
+        font-family: 'Montserrat';
+        font-size: 1.8vw;
+    }
+
+    .OrgLogo {
+        width: 15vw;
+        aspect-ratio: 1/1;
+    }
+
+    .OrgLogo img {
+        object-fit: contain;
+        width : 100%;
+        height: 100%;
+    }
+
+    @media(max-width : 1023px) {
+        .LoginForm {
+            font-size: 15px;
+            text-wrap: nowrap;
+            width : 250px;
+            height : 250px;
+            top : 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+    }
+
+    .LoginForm input {
+        width: 90%;
+        aspect-ratio: 12/1;
+        border-color: rgb(139, 139, 139);
+        border-width: 2px;
+        border-style: solid;
+        background-color: rgb(64, 64, 64);
+        color: white;
+        font-size: 1.3vw;
+    }
+
+    .LoginForm button {
+        margin-top: 20px;
+        background-color: black;
+        border-radius: 35px;
+        color: white;
+        font-size: 1.3vw;
+        transition: background-color 0.6s ease;
+    }
+
+    .LoginForm button:hover {
+        background-color: rgb(64, 64, 64);
+    }
+
+    .LoginForm label {
+        width : 90%;
+        font-size: 1.3vw;
+        font-family: 'Montserrat';
+        font-weight: 500;
+        color: black;
     }
 }
 
-.LoginForm input {
-    width: 90%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
+@media (orientation : portrait) {
+    .AdminLogin {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+    }
 
-.LoginForm button {
-    margin-top: 20px;
-}
+    .LoginForm {
+        position: absolute;
+        width: 90vw;
+        height: 70vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        left : 50%;
+        top : 50%;
+        transform: translateX(-50%) translateY(-50%);
+        background-color: white;
+    }
 
-.LoginForm label {
-    font-size: 20px;
+    .LoginForm h1 {
+        color: black;
+        font-family: 'Montserrat';
+        font-size: 7vw;
+    }
+
+    .OrgLogo {
+        width: 30vw;
+        aspect-ratio: 1/1;
+    }
+
+    .OrgLogo img {
+        object-fit: contain;
+        width : 100%;
+        height: 100%;
+    }
+
+    .LoginForm input {
+        width: 90%;
+        aspect-ratio: 12/1;
+        border-color: rgb(139, 139, 139);
+        border-width: 2px;
+        border-style: solid;
+        background-color: rgb(64, 64, 64);
+        color: white;
+        font-size: 5vw;
+    }
+
+    .LoginForm button {
+        margin-top: 20px;
+        background-color: black;
+        border-radius: 35px;
+        color: white;
+        font-size: 5vw;
+        transition: background-color 0.6s ease;
+    }
+
+    .LoginForm button:hover {
+        background-color: rgb(64, 64, 64);
+    }
+
+    .LoginForm label {
+        width : 90%;
+        font-size: 5vw;
+        font-family: 'Montserrat';
+        font-weight: 500;
+        color: black;
+    }
 }

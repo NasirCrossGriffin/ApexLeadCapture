@@ -20,6 +20,13 @@
         font-size: 1.2vw;
         border-radius: 25px;
         font-family: 'Montserrat';
+        box-shadow: 0 0 5px 5px rgb(139, 139, 139);
+        transition: box-shadow 0.6s ease;
+    }
+
+    .NavButton:hover {
+        border-style: none;
+        box-shadow: 0 0 5px 5px navy;
     }
 
     .Continue {
@@ -47,6 +54,29 @@
         object-fit: contain;
         height: 100%;
         width: auto;
+    }
+
+    .ProgressBar {
+        position: absolute;
+        top : 99%;
+        left : 50%;
+        width : 90%;
+        aspect-ratio: 80/1;
+        border-radius: 35px;
+        transform: translate(-50%, -99%);
+        background-color: rgb(64, 64, 64);
+    }
+
+    .Progress {
+        position: absolute;
+        top : 0;
+        left : 0;
+        height: 100%;
+        border-radius: 35px;
+        background: linear-gradient(to right, white, rgb(109, 202, 238));
+        /*background-color: rgb(0, 183, 255);*/
+        box-shadow: 0 0 10px 10px rgb(109, 202, 238);
+        transition: width 0.6s ease;
     }
 
     /* 
@@ -117,21 +147,33 @@
     }
 
     .NameField input, .ContactField input {
+        position: relative;
         width : 100%;
-        height : 100%;
+        aspect-ratio : 14/1;
         font-size: 1.1vw;
         color: white;
         background-color: rgb(64, 64, 64);
-        border-color: black;
+        border-color: rgb(139, 139, 139);
+        box-shadow: 0 0 5px 5px rgb(139, 139, 139);
         border-style: solid;
+        transition: color 0.6s ease, background-color 0.6s ease, box-shadow 0.6s ease;
+        z-index: 1;
+    }
+
+    .NameField input:focus, .ContactField input:focus {
+        box-shadow: 0 0 5px 5px rgb(34, 34, 34);
+        border-radius: 0;
+        background-color: black;
     }
 
     .NameField label, .ContactField label{
+        position: relative;
         width: 100%;
         font-family: 'Montserrat';
         font-weight: 500;
         font-size: 1.4vw;
-        color: white;
+        color: black;
+        z-index: 2;
     }
 
     .CustomerInformation button {
@@ -153,9 +195,9 @@
     .InputGrid {
         position: absolute;
         width: 90%;
-        height: 90%;
+        height: 75%;
         left: 50%;
-        top: 90%;
+        top: 80%;
         transform: translate(-50%, -90%);
 
         display: grid;
@@ -182,13 +224,26 @@
         color: white;
         background-color: rgb(64, 64, 64);
         border-style: solid;
+        box-shadow: 0 0 5px 5px rgb(139, 139, 139);
+        transition: color 0.6s ease, background-color 0.6s ease, box-shadow 0.6s ease;
+        z-index: 1;
+    }
+
+    .PropertyInput select:focus {
+        box-shadow: 0 0 5px 5px rgb(34, 34, 34);
+        border-radius: 0;
+        background-color: black;
     }
 
     .PropertyInput label {
-        color: black;
-        font-family: 'Montserrat';
-        font-weight: bold;
+        position: relative;
         width: 70%;
+        font-family: 'Montserrat';
+        font-weight: 500;
+        font-size: 1.4vw;
+        color: black;
+        text-wrap: nowrap;
+        z-index: 2;
     }
 
     .PropertyInput input {
@@ -202,6 +257,15 @@
         color: white;
         background-color: rgb(64, 64, 64);
         border-style: solid;
+        box-shadow: 0 0 5px 5px rgb(139, 139, 139);
+        transition: color 0.6s ease, background-color 0.6s ease, box-shadow 0.6s ease;
+        z-index: 1;
+    }
+
+    .PropertyInput input:focus {
+        box-shadow: 0 0 5px 5px rgb(34, 34, 34);
+        border-radius: 0;
+        background-color: black;
     }
 
     .VehicleMake, .VehicleModel, .InsuranceProvider {
@@ -387,6 +451,7 @@
         resize: none;
         font-family: 'Montserrat';
         font-size: 1.4vw;
+        box-shadow: 0 0 10px 10px rgb(139, 139, 139);
     }
     /* 
         ##############################
@@ -416,6 +481,11 @@
         border-color: white;
         border-width: 5px;
         border-radius: 20px;
+        box-shadow: 0 0 10px 10px rgb(139, 139, 139);
+    }
+
+    .UploadButton:hover {
+        border-color: rgb(156, 156, 156);
     }
 
     .UploadButton img {
@@ -591,7 +661,8 @@
         grid-template-columns: 1fr 1fr 1fr ;
         place-items: center;
         width: 70%;
-        height: 70%;
+        height: 65%;
+        margin-bottom: 20vw;
     }
 
     .ReviewItem {
