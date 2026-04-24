@@ -9,13 +9,13 @@
         top : 0;
         width: 100vw;
         height: var(--app-height);
-        background-color: rgb(255, 255, 255);
+        background-color: transparent;
     }
 
     .NavButton {
-        position: fixed;
-        background-color: black;
-        color : white;
+        position: relative;
+        background-color: white;
+        color : black;
         width: 10vw;
         font-size: 1.2vw;
         border-radius: 25px;
@@ -29,24 +29,40 @@
         box-shadow: 0 0 5px 5px navy;
     }
 
+    .NavBar {
+        position: fixed;
+        top : 0;
+        left : 0;
+        width: 100vw;
+        height: calc(var(--app-height) * .10);
+        background-color: black;
+    }
+
+    .NavContainer {
+        position: absolute;
+        height: 100%;
+        width : 90%;
+        top : 0;
+        left : 50%;
+        transform: translateX(-50%);
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
     .Continue {
-        top : 2vw;
-        right: 2vw;
         font-family: 'Montserrat';
     }
 
     .Back {
-        top : 2vw;
-        left: 2vw;
         font-family: 'Montserrat';
     }
 
     .Logo {
-        position: absolute;
-        transform: translateX(-50%);
-        left : 50%;
-        top: 0;
-        height : 15%;
+        position: relative;
+        height : 90%;
         pointer-events: none;
     }
 
@@ -79,6 +95,52 @@
         transition: width 0.6s ease;
     }
 
+    .SystemBackground {
+        position: fixed;
+        left : 0;
+        top : 0;
+        z-index: -2;
+        width : 100vw;
+        height: var(--app-height);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+    }
+
+    .SystemBackgroundImage {
+        position: relative;
+        width : 100vw;
+        height : fit-content;
+        z-index: -2;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+    }
+
+    .SystemBackground img {
+        position : absolute;
+        object-fit: contain;
+        width : 100%;
+        height : auto
+    }
+
+    .SystemBackgroundOverlay {
+        position: absolute;
+        left : 0;
+        top : 0;
+        z-index: -1;
+        width : 100%;
+        height : 100%;
+        background-color: black;
+        opacity: 0.5;
+    }
+
     /* 
         ##############################
         ##############################
@@ -103,6 +165,7 @@
         justify-content: space-between;
         overflow-y: hidden;
         bottom : 0;
+        background-color: transparent;
     }
 
     .CustomerInformation h1, 
@@ -113,7 +176,7 @@
     .PhotoUploadContainer h1,
     .SelectAppointmentDateContainer h1 {
         font-family: 'Montserrat';
-        color: black;
+        color: white;
         font-size: 2.5vw;
     }
 
@@ -124,7 +187,7 @@
     .InsuranceProvider h2, 
     .ConfirmationPage h2 {
         font-family: 'Montserrat';
-        color: black;
+        color: white;
         font-size: 2vw;
     }
 
@@ -143,12 +206,13 @@
         justify-content: center;
         align-items: center;
         width: 45%;
-        height: 45%;
+        min-height: 45%;
+        height: fit-content;
     }
 
     .ContactField p {
         font-size : 1.3vw;
-        color: black;
+        color: white;
     }
 
     .NameField input, .ContactField input {
@@ -177,7 +241,7 @@
         font-family: 'Montserrat';
         font-weight: 500;
         font-size: 1.4vw;
-        color: black;
+        color: white;
         z-index: 2;
     }
 
@@ -246,7 +310,7 @@
         font-family: 'Montserrat';
         font-weight: 500;
         font-size: 1.4vw;
-        color: black;
+        color: rgb(255, 255, 255);
         text-wrap: nowrap;
         z-index: 2;
     }
@@ -610,7 +674,7 @@
     }
 
     .InsuranceInquiry h2 {
-        color : black;
+        color : white;
         font-family: 'Montserrat';
         margin : 0 0 0 0;
     }
@@ -653,6 +717,13 @@
         align-items: center;
         height: 80%;
         width: 100%;
+        background-color: transparent
+    }
+
+    .DatePicker {
+        width : 50%;
+        height: 50%;
+        background-color: transparent;
     }
 
     /* 
@@ -680,7 +751,7 @@
         width: 20vw;
         font-size: 1.3vw;
         text-align: center;
-        color: black;
+        color: rgb(255, 255, 255);
     }
 
     .Validator {

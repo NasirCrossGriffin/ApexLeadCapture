@@ -8,10 +8,10 @@ import CssBaseline from "@mui/material/CssBaseline";
 
 const darkTheme = createTheme({
   palette: {
-    mode: "light",
+    mode: "dark",
     background: {
-      default: "#ffffff",
-      paper: "#ffffff",
+      default: "#292929",
+      paper: "#292929",
     },
     primary: {
       main: "#4f8cff",
@@ -37,7 +37,6 @@ export default function AppointmentDatePicker({
 
   return (
     <ThemeProvider theme={darkTheme}>
-      <CssBaseline />
       
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DateTimePicker
@@ -51,7 +50,7 @@ export default function AppointmentDatePicker({
             } as any,
           }}
         />
-    </LocalizationProvider>
+      </LocalizationProvider>
 
     </ThemeProvider>
   );

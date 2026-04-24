@@ -536,23 +536,32 @@ function IngestionPage() {
     return (
         <>
             {loading === false && validService === true ? <div className='IngestionPage'>
-            <button
-                className='NavButton Continue'
-                onClick={() => {(formIndex + 1) < formState.length ? setFormIndex(formIndex + 1) : null}}
-            >
-                Continue
-            </button>
+            <div className='SystemBackground'>
+                <div className='SystemBackgroundOverlay'></div>
+                <div className='SystemBackgroundImage'><img src='/images/background.jpg' /></div>
+            </div>
 
-            {organization ? <div className='Logo'>
-                <img src={organization.logo} />
-            </div> : null}
+            <div className='NavBar'>
+                <div className='NavContainer'>
+                    <button
+                        className='NavButton Back'
+                        onClick={() => {(formIndex - 1) > -1 ? setFormIndex(formIndex - 1) : setValidService(false)}}
+                    >
+                        Back
+                    </button>
 
-            <button
-                className='NavButton Back'
-                onClick={() => {(formIndex - 1) > -1 ? setFormIndex(formIndex - 1) : setValidService(false)}}
-            >
-                Back
-            </button>
+                    {organization ? <div className='Logo'>
+                        <img src={organization.logo} />
+                    </div> : null}
+
+                    <button
+                        className='NavButton Continue'
+                        onClick={() => {(formIndex + 1) < formState.length ? setFormIndex(formIndex + 1) : null}}
+                    >
+                        Continue
+                    </button>
+                </div>
+            </div>
 
             <div className='ProgressBar'><div className='Progress' style={{width : ((formIndex/6) * 100).toString().concat('%')}}></div></div>
                 {  
@@ -756,7 +765,7 @@ function IngestionPage() {
                             <div className='SelectAppointmentDateContainer'>
                                 <h1>Select a date and time for your appointment</h1>
 
-                                <div>
+                                <div className='DatePicker'>
                                     <AppointmentDatePicker setIsoString={setIsoString} dt={dt} setDt={setDt}/>
                                 </div>
                             </div>
